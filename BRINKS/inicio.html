@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Vehículo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+   body {
+  background-image: url('https://cl.brinks.com/documents/1934087/0/b+%281%29.png/19a28c4e-5b37-0aad-767b-5ed798cbbff5?t=1656452365806'); /* Puedes cambiar esta URL */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+    .form-container {
+        background: rgba(255, 255, 255, 0.9); /* Transparencia */
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .buttons {
+      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+    }
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .submit-btn {
+      background-color: #28a745;
+      color: white;
+    }
+    .reset-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .menu-lateral {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: #0056b3;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+  font-family: Arial, sans-serif;
+}
+
+.menu-lateral a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+  transition: 0.2s;
+}
+
+.menu-lateral a:hover {
+  background-color: #003d80;
+}
+
+.icono-menu {
+  font-size: 28px;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 3;
+  color: white;
+  background-color: #0056b3;
+  padding: 8px 12px;
+  border-radius: 5px;
+}
+
+  </style>
+</head>
+<body>
+    <div id="menuHamburguesa" class="menu-lateral">
+        &emsp;
+        <a href="#">Reportar falla vehículo</a>
+
+        <a href="#">Incidentes</a>
+
+        <a href="#">Selección de fechas</a>
+      </div>
+      
+      <span class="icono-menu" onclick="abrirMenu()">☰</span>
+      
+        <h2 style="text-align: center; color: #0056b3; font-size: 2em; margin-bottom: 10px;">BRINKS</h2>
+        <div class="form-container">
+          
+          <form id="vehiculoForm" novalidate>
+            <!-- resto del formulario aquí -->
+
+           
+      
+  
+
+    <div id="contenido" class="form-container">
+        <h2>Reportar falla de Vehículo</h2>
+        <form id="vehiculoForm" novalidate>
+  
+      
+    
+       
+
+        
+            <label for="fecha">Fecha</label>
+            <input type="date" id="fecha" name="fecha" required>
+          
+      <label for="tipo">Tipo de vehículo:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="">Seleccione</option>
+        <option value="UB">UB</option>
+        <option value="Automovil">Automovil</option>
+      
+      </select>
+
+      <label for="patente">Patente:</label>
+      <input type="text" id="patente" name="patente" pattern="[A-Z0-9]{6,8}" required>
+
+      <label for="sucursal">Sucursal:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="">Seleccione</option>
+        <option value="UB">UB</option>
+        <option value="Automovil">Automovil</option>
+      
+      </select>
+     
+
+      <label for="falla">Descripción de la falla:</label>
+      <textarea id="falla" name="falla" rows="4" required></textarea>
+
+      <label for="nombre">Nombre de quien reporta:</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" placeholder="Ej: 612345678" required>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" name="email" required>
+
+      <div class="buttons">
+        <button type="submit" class="submit-btn">Enviar</button>
+        <button type="reset" class="reset-btn">Borrar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('vehiculoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      if (!this.checkValidity()) {
+        alert('Por favor, complete todos los campos correctamente.');
+        return;
+      }
+
+      const datos = {
+        tipo: document.getElementById('tipo').value,
+        patente: document.getElementById('patente').value,
+        sucursal: document.getElementById('sucursal').value,
+        falla: document.getElementById('falla').value,
+        nombre: document.getElementById('nombre').value,
+        telefono: document.getElementById('telefono').value,
+        email: document.getElementById('email').value
+      };
+
+      console.log('Datos enviados:', datos);
+      alert('Formulario enviado con éxito.');
+      this.reset();
+    });
+    function abrirMenu() {
+  const menu = document.getElementById("menuHamburguesa");
+  if (menu.style.width === "250px") {
+    menu.style.width = "0";
+  } else {
+    menu.style.width = "250px";
+  }
+}
+document.getElementById("contenido").addEventListener("click", function () {
+  const menu = document.getElementById("menuHamburguesa");
+  if (menu.style.width === "250px") {
+    menu.style.width = "0";
+  }
+});
+
+document.getElementById('vehiculoForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  if (!this.checkValidity()) {
+    alert('Por favor, complete todos los campos correctamente.');
+    return;
+  }
+
+  const datos = {
+    fecha: document.getElementById('fecha').value,
+    tipo: document.getElementById('tipo').value,
+    patente: document.getElementById('patente').value,
+    sucursal: document.getElementById('sucursal').value,
+    falla: document.getElementById('falla').value,
+    nombre: document.getElementById('nombre').value,
+    telefono: document.getElementById('telefono').value,
+    email: document.getElementById('email').value
+  };
+
+  try {
+    const res = await fetch('http://localhost:3000/api/reportar', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(datos)
+    });
+
+    const respuesta = await res.json();
+    alert(respuesta.mensaje);
+    this.reset();
+  } catch (error) {
+    alert('Hubo un error al enviar los datos');
+    console.error(error);
+  }
+});
+
+
+
+  </script>
+
+
+
+</body>
+
+
+</html>
