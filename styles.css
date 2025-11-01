@@ -16,6 +16,12 @@
   background: rgb(2,0,36);
   background: linear-gradient(12deg, rgba(2,0,36,1) 12%, rgba(12,14,62,1) 35%, rgba(9,116,185,1) 73%);
 }
+.map-container {
+  display: flex;
+  justify-content: center;
+  /* Para que sea responsive, puedes añadir max-width */
+}
+
 
 
 
