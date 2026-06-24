@@ -119,6 +119,25 @@
       color: #333;
     }
 
+        /* Map responsive */
+    .map-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      margin-top: 50px;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .map-container iframe {
+      position: absolute;
+      top:0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border:0;
+    }
+
   </style>
 
   <title>Recondo Computación</title>
@@ -241,6 +260,14 @@
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-91031a20-5f60-4025-8f25-ebe526e3ed6a" data-elfsight-app-lazy></div>
 </div>
+
+
+  <!-- MAPA -->
+  <div class="container text-center">
+    <div class="map-container">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3279.786464531539!2d-58.4458778252065!3d-34.71056546314725!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccc342e1931cb%3A0x36be8340fefafdc9!2sSoporte%20T%C3%A9cnico%20Recondo!5e0!3m2!1ses-419!2sar!4v1722428499990!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
 
   <!-- FOOTER -->
   <footer id="sector_contacto">
